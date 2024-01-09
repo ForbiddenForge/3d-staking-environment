@@ -15,18 +15,17 @@ export default function Lights()
 
     return <>
         <directionalLight
-            ref={ directionalLightRef }
-            castShadow
-            position={ [ 4, 4, 1 ] }
-            intensity={ 4.5 }
-            shadow-mapSize={ [ 1024, 1024 ] }
-            shadow-camera-near={ 1 }
-            shadow-camera-far={ 10 }
-            shadow-camera-top={ 10 }
-            shadow-camera-right={ 10 }
-            shadow-camera-bottom={ - 10 }
-            shadow-camera-left={ - 10 }
+          ref={ directionalLightRef }
+          castShadow
+          intensity={0.7}
+          color={'#FFFFED'}
+          shadow-bias={-0.0004}
+          position={[-20, 20, 20]}
+          shadow-camera-top={20}
+          shadow-camera-right={20}
+          shadow-camera-bottom={-20}
+          shadow-camera-left={-20}
         />
-        <ambientLight intensity={ 1.5 } />
+        <ambientLight intensity={ 0.2 } />
     </>
 }
