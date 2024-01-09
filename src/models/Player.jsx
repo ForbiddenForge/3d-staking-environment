@@ -11,7 +11,7 @@ export default function CharacterModel(props) {
   return (
     <group name="Root_Scene">
       <group name="RootNode">
-        <group name="CharacterArmature" rotation={[-Math.PI / 2, 0, 0]} scale={50} position={[0, -0.6, 0]}>
+        <group name="CharacterArmature" rotation={[-Math.PI / 2, 0, 0]} scale={50} position={[0, -0.85, 0]}>
           <primitive object={nodes.Root} />
         </group>
         <group name="Demon" rotation={[-Math.PI / 2, 0, 0]} scale={100}>

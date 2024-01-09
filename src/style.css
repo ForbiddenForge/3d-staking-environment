@@ -81,3 +81,16 @@ body,
 .controls .key.active {
 	background: #ffffff99;
 }
+
+.controlKeys {
+	position: absolute;
+	width: 18rem;
+	left: 50%;
+	margin-left: -9rem;
+	bottom: 10%;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-drag: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
