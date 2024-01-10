@@ -2,12 +2,15 @@ import { Canvas } from '@react-three/fiber'
 import Experience from './Experience.jsx'
 import Interface from './Interface.jsx'
 import { EcctrlJoystick } from 'ecctrl'
+import './style.css'
 
 export default function App() {
 
   return(
       <>
-        <EcctrlJoystick buttonNumber={5} buttonTop1Props/>
+        <div id='joystick'>
+          <EcctrlJoystick buttonNumber={5} buttonTop1Props/>
+        </div>
         <Canvas
             shadows
             // camera={ {

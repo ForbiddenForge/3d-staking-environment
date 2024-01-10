@@ -1,6 +1,7 @@
 
 import { Physics } from '@react-three/rapier'
 import { Environment, KeyboardControls } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
 import { Perf } from 'r3f-perf'
 import { Suspense } from 'react'
 import Ecctrl, { EcctrlAnimation } from 'ecctrl'
@@ -9,6 +10,7 @@ import Lights from './Lights.jsx'
 import Level from './models/Level.jsx'
 import Player from './models/Player.jsx'
 import useGame from './stores/useGame.jsx'
+import { useRef } from 'react'
 
 export default function Experience() {
     const blocksCount = useGame((state) => state.blocksCount)
@@ -52,20 +54,23 @@ export default function Experience() {
     action4: 'CharacterArmature|Punch'
   }
 
+
+ 
+
     return ( 
     <>
         <Perf position={ "top-left" } />
         <color args={['#bdedfc']} attach="background" />
         <Suspense fallback={null}>
-          <Physics debug={ true } timeStep={"vary"}>
+          <Physics debug={ false } timeStep={"vary"}>
             <Lights />
             <KeyboardControls map={keyboardMap}>
 
               <Ecctrl debug animated>
                 <EcctrlAnimation characterURL={characterURL} animationSet={animationSet}>
-
-                  <Player />
-
+                  <Suspense fallback={null}>
+                    <Player />
+                  </Suspense>
                 </EcctrlAnimation>
               </Ecctrl>
 

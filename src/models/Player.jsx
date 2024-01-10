@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
 
 export default function CharacterModel(props) {
   const { nodes, materials } = useGLTF('../assets/3d/Demon.glb')
@@ -7,6 +8,8 @@ export default function CharacterModel(props) {
     materials[material].metalness = -2
     materials[material].roughness = 1
   }
+
+  
 
   return (
     <group name="Root_Scene">
