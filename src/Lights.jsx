@@ -7,16 +7,18 @@ export default function Lights()
 {
 
     const directionalLightRef = useRef()
-    useHelper(directionalLightRef, DirectionalLightHelper, 1, "white");
-
     const directionalLightRef2 = useRef()
-    useHelper(directionalLightRef2, DirectionalLightHelper, 1, "white");
-
     const pointLightRef = useRef()
-    useHelper(pointLightRef, PointLightHelper, 1, "white")
-
     const pointLightRef2 = useRef()
-    useHelper(pointLightRef2, PointLightHelper, 1, "white")
+
+
+    /**
+     * Light Helpers
+     */
+    // useHelper(directionalLightRef, DirectionalLightHelper, 1, "white");
+    // useHelper(directionalLightRef2, DirectionalLightHelper, 1, "white");
+    // useHelper(pointLightRef, PointLightHelper, 1, "white")
+    // useHelper(pointLightRef2, PointLightHelper, 1, "white")
 
     // useFrame((state) => {
     //     directionalLightRef.current.position.z = state.camera.position.z + 1 - 4
@@ -31,7 +33,7 @@ export default function Lights()
           ref={ directionalLightRef }
           castShadow
           position={[10, 5, 0]}
-          intensity={5}
+          intensity={3}
           color={'#ffffff'}
           shadow-bias={-0.0004}
           shadow-camera-top={5}
@@ -53,15 +55,15 @@ export default function Lights()
           position={[-25, 6, 0]}
           color={'#FFC9D3'}
           distance={100}
-          decay={1}
+          decay={1.5}
         />
         <pointLight 
           ref={pointLightRef2}
-          intensity={10}
+          intensity={100}
           position={[-11, 6, 0]}
           color={'#FFC9D3'}
-          distance={100}
-          decay={1}
+          distance={50}
+          decay={1.5}
         />
         <ambientLight position={[0, 1, 0]} intensity={ 0.2 } />
 

@@ -3,7 +3,7 @@ import { RigidBody } from '@react-three/rapier'
 import { useRef } from 'react'
 
 export default function Level(props) {
-  const { nodes, materials } = useGLTF('../assets/3d/dojo.glb')
+  const { nodes, materials } = useGLTF('../assets/3d/dojoCompressed.glb')
   const levelRef = useRef()
 
   return (
@@ -31,4 +31,4 @@ export default function Level(props) {
   )
 }
 
-useGLTF.preload('../assets/3d/dojo.glb')
+useGLTF.preload('../assets/3d/dojoCompressed.glb')

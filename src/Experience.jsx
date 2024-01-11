@@ -1,16 +1,19 @@
 
 import { Physics } from '@react-three/rapier'
-import { Environment, KeyboardControls } from '@react-three/drei'
+import { Environment, KeyboardControls, Sky, Stars, Sparkles } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { Perf } from 'r3f-perf'
-import { Suspense } from 'react'
+import { Suspense, useMemo } from 'react'
 import Ecctrl, { EcctrlAnimation } from 'ecctrl'
-
-import Lights from './Lights.jsx'
-import Level from './models/Level.jsx'
-import Player from './models/Player.jsx'
-import useGame from './stores/useGame.jsx'
 import { useRef } from 'react'
+
+import useGame from './stores/useGame.jsx'
+import Lights from './Lights.jsx'
+import Player from './models/Player.jsx'
+import Level from './models/Level.jsx'
+import Ground from './models/Ground.jsx'
+import  Wizard  from './models/Wizard.jsx'
+import { Fog } from 'three'
 
 export default function Experience() {
     const blocksCount = useGame((state) => state.blocksCount)
@@ -35,50 +38,73 @@ export default function Experience() {
   /**
    * Character url preset
    */
-  const characterURL = '../assets/3d/Demon.glb'
+  const characterURL = '../assets/3d/dragonPlayer.glb'
 
   /**
    * Character animation set preset
    */
   const animationSet = {
-    idle: 'CharacterArmature|Idle',
-    walk: 'CharacterArmature|Walk',
-    run: 'CharacterArmature|Run',
-    jump: 'CharacterArmature|Jump',
-    jumpIdle: 'CharacterArmature|Jump_Idle',
-    jumpLand: 'CharacterArmature|Jump_Land',
-    fall: 'CharacterArmature|Duck', // This is for falling from high sky
-    action1: 'CharacterArmature|Wave',
-    action2: 'CharacterArmature|Death',
-    action3: 'CharacterArmature|HitReact',
-    action4: 'CharacterArmature|Punch'
+    idle: 'Fast_Flying',
+    walk: 'Fast_Flying',
+    run: 'Fast_Flying',
+    jump: 'Flying_Idle',
+    jumpIdle: 'Flying_Idle',
+    jumpLand: 'Flying_Idle',
+    fall: 'Flying_Idle', // This is for falling from high sky
+    action1: 'Yes',
+    action2: 'No',
+    action3: 'Death',
+    action4: 'Punch'
   }
 
+  const date = new Date()
+  const hour = date.getHours()
+  const daytime = useMemo(() => {
+    let daytime 
+    if(hour > 7 && hour < 21 ) {
+      daytime = true
+    } else if( 22 <= hour || hour >= 7 ) {
+      daytime = false
+    }
+    console.log(daytime)
+    return daytime
+  }, [])
 
  
 
     return ( 
     <>
         <Perf position={ "top-left" } />
-        <color args={['#bdedfc']} attach="background" />
+        <color args={['#000000']} attach="background" />
         <Suspense fallback={null}>
           <Physics debug={ false } timeStep={"vary"}>
             <Lights />
-            <KeyboardControls map={keyboardMap}>
 
-              <Ecctrl debug animated>
+            <KeyboardControls map={keyboardMap}>
+              <Ecctrl animated position={[10, 10, 0]}>
                 <EcctrlAnimation characterURL={characterURL} animationSet={animationSet}>
                   <Suspense fallback={null}>
                     <Player />
                   </Suspense>
                 </EcctrlAnimation>
               </Ecctrl>
-
             </KeyboardControls>
-
             <Level />
-
+            <Ground />
           </Physics>
+            <Wizard />
+            <Sky distance={45000} sunPosition={[1000, 1, 0]} />
+            <Sparkles
+              count={200}
+              scale={5}
+              size={5}
+              noise={1}
+              position={[-25.5, 2, 0]}
+            />
+            
+            {/* causes lag :( */}
+            {/* {!daytime && <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />} */}
+            
         </Suspense>
 
     </>
