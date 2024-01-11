@@ -5,7 +5,6 @@ import aoTexture from '../assets/Stylized_Stone_Floor_003_ambientOcclusion.jpg'
 import heightTexture from '../assets/Stylized_Stone_Floor_003_height.png'
 import normalTexture from '../assets/Stylized_Stone_Floor_003_normal.jpg'
 import roughnessTexture from '../assets/Stylized_Stone_Floor_003_roughness.jpg'
-import { RepeatWrapping } from 'three'
 
 export default function Ground() {
 
