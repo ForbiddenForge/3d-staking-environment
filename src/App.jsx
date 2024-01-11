@@ -27,7 +27,7 @@ export default function App() {
         </Canvas>
         </Suspense>
         {/* <Interface /> */}
-        <img class="controlKeys" src="./keyControls.png" alt="control keys" />
+        <img className="controlKeys" src="./keyControls.png" alt="control keys" />
         <Loader />
       
       </>

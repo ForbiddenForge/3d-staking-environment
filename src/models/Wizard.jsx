@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useGLTF, useAnimations, Sparkles } from "@react-three/drei";
 import { useFrame } from '@react-three/fiber'
-import wizardModel from '../assets/3d/wizard.glb'
+import wizardModel from '/assets/3d/wizard.glb'
 
 export default function Wizard(props) {
   const group = useRef();

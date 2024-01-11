@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
-import dragonPlayer from '../assets/3d/dragonPlayer.glb'
+import dragonPlayer from '/assets/3d/dragonPlayer.glb'
 
 export default function CharacterModel(props) {
   const { nodes, materials, animations } = useGLTF(dragonPlayer)

@@ -1,7 +1,7 @@
 import { useGLTF } from '@react-three/drei'
 import { RigidBody } from '@react-three/rapier'
 import { useRef } from 'react'
-import dojoModel from '../assets/3d/dojoCompressed.glb'
+import dojoModel from '/assets/3d/dojoCompressed.glb'
 
 export default function Level(props) {
   const { nodes, materials } = useGLTF(dojoModel)

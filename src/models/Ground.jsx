@@ -1,10 +1,10 @@
 import { RigidBody } from '@react-three/rapier'
 import { useTexture } from '@react-three/drei'
-import colorTexture from '../assets/Stylized_Stone_Floor_003_basecolor.jpg'
-import aoTexture from '../assets/Stylized_Stone_Floor_003_ambientOcclusion.jpg'
-import heightTexture from '../assets/Stylized_Stone_Floor_003_height.png'
-import normalTexture from '../assets/Stylized_Stone_Floor_003_normal.jpg'
-import roughnessTexture from '../assets/Stylized_Stone_Floor_003_roughness.jpg'
+import colorTexture from '/assets/Stylized_Stone_Floor_003_basecolor.jpg'
+import aoTexture from '/assets/Stylized_Stone_Floor_003_ambientOcclusion.jpg'
+import heightTexture from '/assets/Stylized_Stone_Floor_003_height.png'
+import normalTexture from '/assets/Stylized_Stone_Floor_003_normal.jpg'
+import roughnessTexture from '/assets/Stylized_Stone_Floor_003_roughness.jpg'
 
 export default function Ground() {
 
