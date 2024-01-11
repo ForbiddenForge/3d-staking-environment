@@ -2,7 +2,9 @@ import { Canvas } from '@react-three/fiber'
 import Experience from './Experience.jsx'
 import Interface from './Interface.jsx'
 import { EcctrlJoystick } from 'ecctrl'
+import { Loader } from '@react-three/drei'
 import './style.css'
+import { Suspense } from 'react'
 
 export default function App() {
 
@@ -11,6 +13,7 @@ export default function App() {
         <div id='joystick'>
           <EcctrlJoystick buttonNumber={5} buttonTop1Props/>
         </div>
+        <Suspense>
         <Canvas
             shadows
             // camera={ {
@@ -22,7 +25,10 @@ export default function App() {
         >
             <Experience />
         </Canvas>
+        </Suspense>
         {/* <Interface /> */}
+        <img class="controlKeys" src="./keyControls.png" alt="control keys" />
+        <Loader />
       
       </>
 

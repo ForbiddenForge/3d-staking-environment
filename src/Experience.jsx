@@ -1,6 +1,6 @@
 
 import { Physics } from '@react-three/rapier'
-import { Environment, KeyboardControls, Sky, Stars, Sparkles } from '@react-three/drei'
+import { Environment, KeyboardControls, Loader, Sky, Stars, Sparkles } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { Perf } from 'r3f-perf'
 import { Suspense, useMemo } from 'react'
@@ -83,15 +83,15 @@ export default function Experience() {
             <KeyboardControls map={keyboardMap}>
               <Ecctrl animated position={[10, 10, 0]}>
                 <EcctrlAnimation characterURL={characterURL} animationSet={animationSet}>
-                  <Suspense fallback={null}>
                     <Player />
-                  </Suspense>
                 </EcctrlAnimation>
               </Ecctrl>
             </KeyboardControls>
+
             <Level />
             <Ground />
           </Physics>
+
             <Wizard />
             <Sky distance={45000} sunPosition={[1000, 1, 0]} />
             <Sparkles
