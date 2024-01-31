@@ -76,17 +76,18 @@ export default function Experience() {
     <>
         <Perf position={ "top-left" } />
         <color args={['#000000']} attach="background" />
-        <Suspense fallback={null}>
           <Physics debug={ false } timeStep={"vary"}>
             <Lights />
 
-            <KeyboardControls map={keyboardMap}>
-              <Ecctrl animated position={[10, 10, 0]}>
-                <EcctrlAnimation characterURL={characterURL} animationSet={animationSet}>
-                    <Player />
-                </EcctrlAnimation>
-              </Ecctrl>
-            </KeyboardControls>
+            <Suspense fallback={null}>
+              <KeyboardControls map={keyboardMap}>
+                <Ecctrl animated position={[10, 10, 0]}>
+                  <EcctrlAnimation characterURL={characterURL} animationSet={animationSet}>
+                      <Player />
+                  </EcctrlAnimation>
+                </Ecctrl>
+              </KeyboardControls>
+            </Suspense>
 
             <Level />
             <Ground />
@@ -105,7 +106,6 @@ export default function Experience() {
             {/* causes lag :( */}
             {/* {!daytime && <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />} */}
             
-        </Suspense>
 
     </>
     )
