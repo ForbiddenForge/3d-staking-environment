@@ -81,7 +81,7 @@ export default function Experience() {
 
             <Suspense fallback={null}>
               <KeyboardControls map={keyboardMap}>
-                <Ecctrl animated position={[10, 10, 0]} maxVelLimit={7} springMult={2}>
+                <Ecctrl animated position={[10, 10, 0]} maxVelLimit={6} springMult={2}>
                   <EcctrlAnimation characterURL={characterURL} animationSet={animationSet}>
                       <Player />
                   </EcctrlAnimation>
