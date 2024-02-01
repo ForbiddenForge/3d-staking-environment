@@ -15,10 +15,10 @@ export default function Lights()
     /**
      * Light Helpers
      */
-    useHelper(directionalLightRef, DirectionalLightHelper, 1, "white");
-    useHelper(directionalLightRef2, DirectionalLightHelper, 1, "white");
-    useHelper(pointLightRef, PointLightHelper, 1, "white")
-    useHelper(pointLightRef2, PointLightHelper, 1, "white")
+    // useHelper(directionalLightRef, DirectionalLightHelper, 1, "white");
+    // useHelper(directionalLightRef2, DirectionalLightHelper, 1, "white");
+    // useHelper(pointLightRef, PointLightHelper, 1, "white")
+    // useHelper(pointLightRef2, PointLightHelper, 1, "white")
 
     // useFrame((state) => {
     //     directionalLightRef.current.position.z = state.camera.position.z + 1 - 4

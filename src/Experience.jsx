@@ -94,7 +94,7 @@ export default function Experience() {
           </Physics>
 
             <Wizard />
-            <Sky distance={45000} sunPosition={[50, 30, 0]} />
+            {daytime && <Sky distance={45000} sunPosition={[50, 30, 0]} />}
             <Sparkles
               count={200}
               scale={5}
@@ -104,7 +104,7 @@ export default function Experience() {
             />
             
             {/* causes lag :( */}
-            {/* {daytime && <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />} */}
+            {/* {!daytime && <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />} */}
             
 
     </>
