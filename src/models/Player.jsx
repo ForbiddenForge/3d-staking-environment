@@ -9,8 +9,8 @@ export default function CharacterModel(props) {
   const group = useRef()
 
   for (const material in materials) {
-    materials[material].metalness = 0.5
-    materials[material].roughness = 1
+    materials[material].metalness = 0.2
+    materials[material].roughness = 0.6
   }
 
 

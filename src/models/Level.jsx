@@ -7,6 +7,11 @@ export default function Level(props) {
   const { nodes, materials } = useGLTF(dojoModel)
   const levelRef = useRef()
 
+  for (const material in materials) {
+    materials[material].metalness = 0.5
+    materials[material].roughness = 1
+  }
+
   return (
     <RigidBody ref={levelRef} type="fixed" colliders="trimesh" position={[-18, 0, 0]}>
         <group {...props} dispose={null}>

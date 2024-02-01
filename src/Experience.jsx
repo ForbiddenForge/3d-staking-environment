@@ -94,7 +94,7 @@ export default function Experience() {
           </Physics>
 
             <Wizard />
-            <Sky distance={45000} sunPosition={[0, -10, 0]} />
+            <Sky distance={45000} sunPosition={[50, 30, 0]} />
             <Sparkles
               count={200}
               scale={5}

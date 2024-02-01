@@ -9,7 +9,7 @@ export default function Wizard(props) {
   const { actions } = useAnimations(animations, group);
   
   for (const material in materials) {
-    materials[material].metalness = 1
+    materials[material].metalness = 0.9
     materials[material].roughness = 1
   }
 
