@@ -22,17 +22,36 @@ export default function Ground() {
 
 
   return(
-    <RigidBody position={[-15, -0.77, 0]} type='fixed' colliders='cuboid'>
+    <RigidBody position={[-15, -50.77, 0]} type='fixed' colliders='cuboid'>
+
+      {/* main ground */}
       <mesh dispose={null}>
-        <boxGeometry args={[100, 0.5, 100]}/>
+        <boxGeometry args={[100, 100, 100]}/>
         <meshStandardMaterial map={colorMap} aoMap={aoMap} heightMap={heightMap} normalMap={normalMap} roughnessMap={roughnessMap} />
       </mesh>
-      <mesh position={[15, 0.5, 0]} dispose={null}>
-        <boxGeometry args={[5, 0.5, 5]}/>
-        <meshStandardMaterial map={colorMap} aoMap={aoMap} heightMap={heightMap} normalMap={normalMap} roughnessMap={roughnessMap} />
-      </mesh>
-      <mesh position={[17, 0.35, 0]} dispose={null}>
+      {/* small step */}
+      <mesh position={[17, 50.25, 0]} dispose={null}>
         <boxGeometry args={[5, 0.25, 5]}/>
+        <meshStandardMaterial map={colorMap} aoMap={aoMap} heightMap={heightMap} normalMap={normalMap} roughnessMap={roughnessMap} />
+      </mesh>
+      {/* front support stone*/}
+      <mesh position={[16.5, 50.25, 0]} dispose={null}>
+        <boxGeometry args={[3.5, 1, 10]}/>
+        <meshStandardMaterial map={colorMap} aoMap={aoMap} heightMap={heightMap} normalMap={normalMap} roughnessMap={roughnessMap} />
+      </mesh>
+      {/* back support stone*/}
+      <mesh position={[-18, 50.18, 0]} dispose={null}>
+        <boxGeometry args={[5, 1, 10]}/>
+        <meshStandardMaterial map={colorMap} aoMap={aoMap} heightMap={heightMap} normalMap={normalMap} roughnessMap={roughnessMap} />
+      </mesh>
+      {/* right support stone */}
+      <mesh position={[0, 50.15, -7]} dispose={null}>
+        <boxGeometry args={[35, 1, 4]}/>
+        <meshStandardMaterial map={colorMap} aoMap={aoMap} heightMap={heightMap} normalMap={normalMap} roughnessMap={roughnessMap} />
+      </mesh>
+      {/* left support stone */}
+      <mesh position={[0, 50.15, 7]} dispose={null}>
+        <boxGeometry args={[35, 1, 4]}/>
         <meshStandardMaterial map={colorMap} aoMap={aoMap} heightMap={heightMap} normalMap={normalMap} roughnessMap={roughnessMap} />
       </mesh>
     </RigidBody>
