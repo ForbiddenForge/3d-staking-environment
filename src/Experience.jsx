@@ -81,7 +81,7 @@ export default function Experience() {
 
             <Suspense fallback={null}>
               <KeyboardControls map={keyboardMap}>
-                <Ecctrl animated position={[10, 10, 0]}>
+                <Ecctrl animated position={[10, 10, 0]} maxVelLimit={7} springMult={2}>
                   <EcctrlAnimation characterURL={characterURL} animationSet={animationSet}>
                       <Player />
                   </EcctrlAnimation>
@@ -94,7 +94,7 @@ export default function Experience() {
           </Physics>
 
             <Wizard />
-            <Sky distance={45000} sunPosition={[1000, 1, 0]} />
+            <Sky distance={45000} sunPosition={[0, -10, 0]} />
             <Sparkles
               count={200}
               scale={5}
@@ -104,7 +104,7 @@ export default function Experience() {
             />
             
             {/* causes lag :( */}
-            {/* {!daytime && <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />} */}
+            {/* {daytime && <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />} */}
             
 
     </>
