@@ -17,15 +17,8 @@ export default function Wizard(props) {
     let action
     if (actions && actions['clip_CHARACTER.001']) {
       action = actions['clip_CHARACTER.001'];
-      action.reset().play()
+      action.play()
     }
-
-    return () => {
-      if (action) {
-        action.stop()
-      }
-    }
-
     
   }, [actions])
 
@@ -34,6 +27,13 @@ export default function Wizard(props) {
   return (
     <>
     <group ref={group} position={[-25.5, -0.3, 0]} scale={0.15} rotation={[0, 1.8, 0]} {...props} dispose={null}>
+    <Sparkles
+              count={500}
+              scale={[20, 3, 20]}
+              size={5}
+              noise={2}
+              position={[0, 2, 0]}
+      />
       <group name="Sketchfab_Scene">
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
           <group name="root">

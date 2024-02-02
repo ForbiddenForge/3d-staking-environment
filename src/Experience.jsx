@@ -1,6 +1,6 @@
 
 import { Physics } from '@react-three/rapier'
-import { Environment, KeyboardControls, Loader, Sky, Stars, Sparkles } from '@react-three/drei'
+import {KeyboardControls, Sky, Sparkles } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { Perf } from 'r3f-perf'
 import { Suspense, useMemo } from 'react'
@@ -13,7 +13,8 @@ import Player from './models/Player.jsx'
 import Level from './models/Level.jsx'
 import Ground from './models/Ground.jsx'
 import  Wizard  from './models/Wizard.jsx'
-import { Fog } from 'three'
+import StarMap from './models/StarMap.jsx'
+import SkyMap from './models/SkyMap.jsx'
 
 export default function Experience() {
     const blocksCount = useGame((state) => state.blocksCount)
@@ -63,21 +64,25 @@ export default function Experience() {
     let daytime 
     if(hour > 7 && hour < 21 ) {
       daytime = true
-    } else if( 22 <= hour || hour >= 7 ) {
+    } else if( 21 <= hour || hour >= 7 ) {
       daytime = false
     }
-    console.log(daytime)
     return daytime
   }, [])
-
+  
  
 
     return ( 
     <>
         <Perf position={ "top-left" } />
-        <color args={['#000000']} attach="background" />
+
+        {!daytime && <StarMap />}
+        {daytime && <SkyMap />}
+        <fog attach="fog" args={['#faead4', 0, 150]} />
+        
+        <Lights />
+
           <Physics debug={ false } timeStep={"vary"}>
-            <Lights />
 
             <Suspense fallback={null}>
               <KeyboardControls map={keyboardMap}>
@@ -93,18 +98,7 @@ export default function Experience() {
             <Ground />
           </Physics>
 
-            <Wizard />
-            {daytime && <Sky distance={45000} sunPosition={[50, 30, 0]} />}
-            <Sparkles
-              count={200}
-              scale={5}
-              size={5}
-              noise={1}
-              position={[-25.5, 2, 0]}
-            />
-            
-            {/* causes lag :( */}
-            {/* {!daytime && <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />} */}
+        <Wizard />
             
 
     </>

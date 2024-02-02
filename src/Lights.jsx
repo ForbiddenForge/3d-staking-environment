@@ -50,7 +50,7 @@ export default function Lights()
           color={'#FFC9D3'}
           distance={100}
           decay={1.5}
-        />
+        /> 
         <pointLight 
           ref={pointLightRef2}
           intensity={100}
@@ -58,7 +58,7 @@ export default function Lights()
           color={'#FFC9D3'}
           distance={50}
           decay={1.5}
-        />
+        /> 
         <ambientLight position={[0, 1, 0]} intensity={ 2 } />
 
       </Suspense>

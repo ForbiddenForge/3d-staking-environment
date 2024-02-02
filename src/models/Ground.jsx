@@ -9,7 +9,7 @@ import woodTexture from '/assets/textures/wood.jpg'
 import * as THREE from 'three'
 import { useMemo } from 'react'
 
-export default function Ground() {
+export default function Ground(props) {
 
   const [ colorMap, aoMap, heightMap, normalMap, roughnessMap, woodColorMap ] = useTexture([
     colorTexture,

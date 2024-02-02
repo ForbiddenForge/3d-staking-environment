@@ -1,16 +1,18 @@
 import { useGLTF } from '@react-three/drei'
 import { RigidBody } from '@react-three/rapier'
-import { useRef } from 'react'
+import { useMemo, useRef } from 'react'
 import dojoModel from '/assets/3d/dojoCompressed.glb'
 
 export default function Level(props) {
   const { nodes, materials } = useGLTF(dojoModel)
   const levelRef = useRef()
 
-  for (const material in materials) {
-    materials[material].metalness = 0.5
-    materials[material].roughness = 1
-  }
+  useMemo(() => {
+    for (const material in materials) {
+      materials[material].metalness = 0.5
+      materials[material].roughness = 1
+    }
+  }, [])
 
   return (
     <RigidBody ref={levelRef} type="fixed" colliders="trimesh" position={[-18, 0, 0]}>

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useMemo, useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import dragonPlayer from '/assets/3d/dragonPlayer.glb'
@@ -8,13 +8,13 @@ export default function CharacterModel(props) {
 
   const group = useRef()
 
-  for (const material in materials) {
-    materials[material].metalness = 0.2
-    materials[material].roughness = 0.6
-  }
+  useMemo(() => {
+    for (const material in materials) {
+      materials[material].metalness = 0.2
+      materials[material].roughness = 0.6
+    }
+  }, [])
 
-
-  
 
   return (
     <group ref={group} {...props} dispose={null}>
