@@ -19,7 +19,6 @@ const Window = ({ currentStage, setCurrentStage }) => {
       <Html
       center={true}
       position={[-26.5, -0.3, 0]}
-      distanceFactor={10}
       wrapperClass='htmlScreen'
       >
         <div 

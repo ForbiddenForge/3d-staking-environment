@@ -114,8 +114,9 @@ body,
 }
 
 .htmlScreen iframe {
-	width: 110vw;
-	height: 110vh;
+	width: 95vw;
+	height: 70vh;
+
 	overflow: hidden;
 	box-sizing: border-box;
 	overflow: hidden;
