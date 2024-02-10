@@ -23,7 +23,7 @@ const Window = ({ currentStage, setCurrentStage }) => {
       wrapperClass='htmlScreen'
       >
         <div 
-          className='flex justify-center items-center mb-10'
+          className='flex justify-center items-center mb-1'
         >
           <button 
             className='connect-btn w-50'
@@ -38,6 +38,16 @@ const Window = ({ currentStage, setCurrentStage }) => {
           >
 
           </iframe>
+          <div 
+          className='flex justify-center items-center mt-0'
+        >
+          <button 
+            className='connect-btn w-50'
+            onClick={closeStakingWindow}
+          >
+          Close Staking
+          </button>
+        </div>
       </Html>
       
       ),
