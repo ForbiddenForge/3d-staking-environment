@@ -114,6 +114,25 @@ body,
 }
 
 .htmlScreen iframe {
-	width: 90vw;
-	height: 90vh;
+	width: 110vw;
+	height: 110vh;
+	overflow: hidden;
+	box-sizing: border-box;
+	overflow: hidden;
+	box-shadow: 0 20px 50px rgb(23, 32, 90);
+	border: 2px solid #2a3cad;
+	color: white;
+	padding: 10px;
+}
+
+.htmlScreen:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.1);
+	transition: 0.5s;
+	pointer-events: none;
 }

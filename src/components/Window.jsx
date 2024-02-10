@@ -6,6 +6,10 @@ import '../style.css'
 
 const Window = ({ currentStage, setCurrentStage }) => {
 
+  const closeStakingWindow = () => {
+    setCurrentStage(1)
+  }
+
   const renderContent = {
     1: (
       null
@@ -14,11 +18,26 @@ const Window = ({ currentStage, setCurrentStage }) => {
       
       <Html
       center={true}
-      position={[-20.5, -0.3, 0]}
+      position={[-23.5, -0.3, 0]}
       distanceFactor={10}
       wrapperClass='htmlScreen'
       >
-          <iframe src="https://displaythestakingdappandstuff849394894839.dragon3d.app/" frameborder="0"></iframe>
+        <div 
+          className='flex justify-center items-center mb-10'
+        >
+          <button 
+            className='connect-btn w-50'
+            onClick={closeStakingWindow}
+          >
+          Close Staking
+          </button>
+        </div>
+          <iframe 
+            src="https://displaythestakingdappandstuff849394894839.dragon3d.app/" 
+            className='overflow-hidden'
+          >
+
+          </iframe>
       </Html>
       
       ),
