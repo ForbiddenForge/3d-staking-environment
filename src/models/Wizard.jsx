@@ -2,8 +2,9 @@ import React, { useEffect, useRef } from "react";
 import { useGLTF, useAnimations, Sparkles } from "@react-three/drei";
 import { useFrame } from '@react-three/fiber'
 import wizardModel from '/assets/3d/wizard.glb'
+import magicSound from '/sounds/magic-wand.mp3'
 
-export default function Wizard(props) {
+export default function Wizard({currentStage, setCurrentStage}, ...props) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF(wizardModel);
   const { actions } = useAnimations(animations, group);
@@ -11,6 +12,14 @@ export default function Wizard(props) {
   for (const material in materials) {
     materials[material].metalness = 0.9
     materials[material].roughness = 1
+
+  }
+  const magicSoundRef = useRef(new Audio(magicSound))
+  magicSoundRef.current.volume = 0.3;
+  magicSoundRef.current.loop = false;
+
+  const playMagicSound = () => {
+    magicSoundRef.current.play()
   }
 
   useEffect (() => {
@@ -24,9 +33,22 @@ export default function Wizard(props) {
 
 
 
+
   return (
     <>
-    <group ref={group} position={[-25.5, -0.3, 0]} scale={0.15} rotation={[0, 1.8, 0]} {...props} dispose={null}>
+    <group 
+    ref={group} 
+    position={[-25.5, -0.3, 0]} 
+    scale={0.15} 
+    rotation={[0, 1.8, 0]} 
+    {...props} 
+    dispose={null}
+    onClick={() => {
+      setCurrentStage(1)
+      playMagicSound()
+    }}  
+    
+    >
     <Sparkles
               count={500}
               scale={[20, 3, 20]}

@@ -16,9 +16,13 @@ import  Wizard  from './models/Wizard.jsx'
 import StarMap from './models/StarMap.jsx'
 import SkyMap from './models/SkyMap.jsx'
 
-export default function Experience() {
+import Window from './components/Window.jsx'
+import { useState } from 'react'
+
+export default function Experience({currentStage, setCurrentStage}) {
     const blocksCount = useGame((state) => state.blocksCount)
     const blockSeed = useGame((state) => state.blockSeed)
+
 
     /**
    * Keyboard control preset
@@ -98,7 +102,7 @@ export default function Experience() {
             <Ground />
           </Physics>
 
-        <Wizard />
+        <Wizard currentStage={currentStage} setCurrentStage={setCurrentStage} />
             
 
     </>
