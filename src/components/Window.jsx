@@ -1,5 +1,6 @@
 import StakingDapp from './StakingDapp.jsx'
-import './main.css'
+import { Html } from '@react-three/drei'
+import '../style.css'
 
 
 
@@ -11,9 +12,14 @@ const Window = ({ currentStage, setCurrentStage }) => {
     ),
     2: (
       
-      <div id='stake-window' className='stake-window absolute left-1 right-1 top-10 z-10'>
-        <StakingDapp currentStage={currentStage} setCurrentStage={setCurrentStage} />
-      </div>
+      <Html
+      center={true}
+      position={[-20.5, -0.3, 0]}
+      distanceFactor={10}
+      wrapperClass='htmlScreen'
+      >
+          <iframe src="https://displaythestakingdappandstuff849394894839.dragon3d.app/" frameborder="0"></iframe>
+      </Html>
       
       ),
     }

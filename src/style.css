@@ -112,3 +112,8 @@ body,
 		display: none;
 	}
 }
+
+.htmlScreen iframe {
+	width: 90vw;
+	height: 90vh;
+}

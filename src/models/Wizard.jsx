@@ -44,7 +44,7 @@ export default function Wizard({currentStage, setCurrentStage}, ...props) {
     {...props} 
     dispose={null}
     onClick={() => {
-      // setCurrentStage(2)
+      setCurrentStage(2)
       playMagicSound()
     }}  
     

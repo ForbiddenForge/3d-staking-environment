@@ -17,7 +17,6 @@ export default function App() {
 
   return(
       <>
-        <Window currentStage={currentStage} setCurrentStage={setCurrentStage} />
 
 
         {currentStage === 1 && (
@@ -37,7 +36,8 @@ export default function App() {
               // } }
               >
             
-            <Experience currentStage={currentStage} setCurrentStage={setCurrentStage}/>
+          <Window currentStage={currentStage} setCurrentStage={setCurrentStage} />
+          <Experience currentStage={currentStage} setCurrentStage={setCurrentStage}/>
         </Canvas>
         </Suspense>
 
