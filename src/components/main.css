@@ -229,4 +229,5 @@ body {
 	overflow-y: scroll;
 	height: calc(100vh - 100px);
 	width: calc(100vw - 10px);
+	z-index: -1000;
 }
