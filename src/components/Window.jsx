@@ -6,9 +6,12 @@ import './main.css'
 const Window = ({ currentStage, setCurrentStage }) => {
 
   const renderContent = {
+    0: (
+      null
+    ),
     1: (
       
-      <div id='stake-window' className='stake-window'>
+      <div id='stake-window' className='stake-window absolute left-1 right-1 top-10 z-10'>
         <StakingDapp currentStage={currentStage} setCurrentStage={setCurrentStage} />
       </div>
       
@@ -16,7 +19,7 @@ const Window = ({ currentStage, setCurrentStage }) => {
     }
 
   return (
-    renderContent[currentStage] || null
+    renderContent[currentStage]
     )
   }
   

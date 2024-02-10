@@ -6,28 +6,30 @@ import { Loader } from '@react-three/drei'
 import './style.css'
 import { Suspense, useState } from 'react'
 import Window from './components/Window.jsx'
+import { useEffect } from 'react'
 
 
 export default function App() {
 
-  const [currentStage, setCurrentStage] = useState(null);
+  const [currentStage, setCurrentStage] = useState(0);
   
+  useEffect(() => {
+    console.log(currentStage)
+  })
   
 
   return(
       <>
-        <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center'>
-          {currentStage && <Window currentStage={currentStage} setCurrentStage={setCurrentStage} />}
-        </div>
+        <Window currentStage={currentStage} setCurrentStage={setCurrentStage} />
 
-        {currentStage == null && (
+        {currentStage === 0 && (
           <div id='joystick'>
             <EcctrlJoystick buttonNumber={5} buttonTop1Props/>
           </div>
         )}
+
         <Suspense>
         <Canvas
-            id={currentStage != null ? 'no-canvas-scroll' : 'canvas-scroll'}
             shadows
             // camera={ {
             //     fov: 45,
@@ -39,6 +41,7 @@ export default function App() {
             <Experience currentStage={currentStage} setCurrentStage={setCurrentStage}/>
         </Canvas>
         </Suspense>
+
         {/* <Interface /> */}
         <img className="controlKeys" src="./keyControls.png" alt="control keys" />
         <Loader />
