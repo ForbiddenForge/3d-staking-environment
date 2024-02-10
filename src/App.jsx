@@ -19,9 +19,12 @@ export default function App() {
         <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center'>
           {currentStage && <Window currentStage={currentStage} setCurrentStage={setCurrentStage} />}
         </div>
-        <div id='joystick'>
-          <EcctrlJoystick buttonNumber={5} buttonTop1Props/>
-        </div>
+
+        {currentStage == null && (
+          <div id='joystick'>
+            <EcctrlJoystick buttonNumber={5} buttonTop1Props/>
+          </div>
+        )}
         <Suspense>
         <Canvas
             id={currentStage != null ? 'no-canvas-scroll' : 'canvas-scroll'}
