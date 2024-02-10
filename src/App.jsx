@@ -11,11 +11,8 @@ import { useEffect } from 'react'
 
 export default function App() {
 
-  const [currentStage, setCurrentStage] = useState(0);
+  const [currentStage, setCurrentStage] = useState(1);
   
-  useEffect(() => {
-    console.log(currentStage)
-  })
   
 
   return(
@@ -23,7 +20,7 @@ export default function App() {
         <Window currentStage={currentStage} setCurrentStage={setCurrentStage} />
 
 
-        {currentStage === 0 && (
+        {currentStage === 1 && (
           <div id='joystick'>
             <EcctrlJoystick buttonNumber={5} buttonTop1Props/>
           </div>

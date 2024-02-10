@@ -101,8 +101,9 @@ export default function StakingDapp({currentStage, setCurrentStage}) {
   }, [userEstimatedRewards, stakeQuantity, setStakeQuantity, unstakeQuantity, setUnstakeQuantity, userData]);
 
   const closeStakingWindow = () => {
-    setCurrentStage(null)
+    setCurrentStage(1)
   }
+
 
 
   return (
@@ -123,8 +124,8 @@ export default function StakingDapp({currentStage, setCurrentStage}) {
         </span>
         {" "}Staking.
       </h1>
-      <div className='flex justify-center items-center'>
-        {address === owner ? <AdminPanel /> : null}
+      <div className='grid justify-center items-center'>
+        {/* {owner && address && owner === address &&  <AdminPanel /> } */}
       </div>
 
       <StatisticsPanel 
