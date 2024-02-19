@@ -16,7 +16,6 @@ import  Wizard  from './models/Wizard.jsx'
 import StarMap from './models/StarMap.jsx'
 import SkyMap from './models/SkyMap.jsx'
 
-import Window from './components/Window.jsx'
 import { useState } from 'react'
 
 export default function Experience({currentStage, setCurrentStage}) {
@@ -78,7 +77,7 @@ export default function Experience({currentStage, setCurrentStage}) {
 
     return ( 
     <>
-        {/* <Perf position={ "top-left" } /> */}
+        <Perf position={ "top-left" } />
 
         {!daytime && <StarMap />}
         {daytime && <SkyMap />}

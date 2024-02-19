@@ -1,4 +1,4 @@
-import StakingDapp from './StakingDapp.jsx'
+// import StakingDapp from './StakingDapp.jsx'
 import { Html } from '@react-three/drei'
 import '../style.css'
 
