@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { Vector3 } from 'three'
 import { subscribeWithSelector } from 'zustand/middleware'
 
 export default create(subscribeWithSelector((set) => {
