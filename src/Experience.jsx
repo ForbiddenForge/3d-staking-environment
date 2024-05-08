@@ -33,7 +33,7 @@ export default function Experience({currentStage, setCurrentStage}) {
 
     return ( 
     <>
-        <Perf hidden position={ "top-left" } />
+        {/* <Perf hidden position={ "top-left" } /> */}
 
         {!daytime && <StarMap />}
         {daytime && <SkyMap />}
