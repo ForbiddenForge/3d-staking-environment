@@ -71,6 +71,14 @@ body,
   font-family: "Bebas Neue", cursive;
 }
 
+.neo-brutalism-blue {
+  background: #2b77e7;
+  position: relative;
+  border-radius: 20px;
+  border: #02367f;
+  user-select: none;
+}
+
 .time {
   position: absolute;
   top: 15%;

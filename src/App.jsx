@@ -11,7 +11,7 @@ import { useEffect } from 'react'
 
 export default function App() {
 
-  const [currentStage, setCurrentStage] = useState(1);
+  const [currentStage, setCurrentStage] = useState(3);
   
   
 

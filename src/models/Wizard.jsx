@@ -1,12 +1,17 @@
-import React, { useEffect, useRef } from "react";
-import { useGLTF, useAnimations, Sparkles } from "@react-three/drei";
+import React, { useEffect, useRef, useState } from "react";
+import { useGLTF, useAnimations, Sparkles, MeshPortalMaterial, Html, Environment, Outlines} from "@react-three/drei";
 import { useFrame } from '@react-three/fiber'
 import wizardModel from '/assets/3d/wizard.glb'
 import magicSound from '/sounds/magic-wand.mp3'
+import aoboxModel from '/assets/3d/aobox-transformed.glb'
 
 export default function Wizard({currentStage, setCurrentStage}, ...props) {
   const group = useRef();
+  const hologramCubeRef = useRef();
+
+  const [hovered, setHovered] = useState(false);
   const { nodes, materials, animations } = useGLTF(wizardModel);
+  const { nodes: aoboxNodes } = useGLTF(aoboxModel);
   const { actions } = useAnimations(animations, group);
   
   for (const material in materials) {
@@ -22,6 +27,10 @@ export default function Wizard({currentStage, setCurrentStage}, ...props) {
     magicSoundRef.current.play()
   }
 
+  const closeStakingWindow = () => {
+    setCurrentStage(1)
+  }
+
   useEffect (() => {
     let action
     if (actions && actions['clip_CHARACTER.001']) {
@@ -31,11 +40,48 @@ export default function Wizard({currentStage, setCurrentStage}, ...props) {
     
   }, [actions])
 
+  useFrame(() => {
+    if (hologramCubeRef.current.rotation) {
+      hologramCubeRef.current.rotation.y += 0.01;
+    }
+  })
+
 
 
 
   return (
     <>
+
+      <mesh
+        ref={hologramCubeRef}
+        position={[-23, 0.5, -3]}
+        scale={hovered ? 1.5 : 1}
+        onPointerOver={() => setHovered(true)}
+        onPointerOut={() => setHovered(false)}
+        onClick={() => {
+          setCurrentStage(2);
+          playMagicSound();
+        }}
+      >
+        <boxGeometry args={[1, 1, 0.1]} />
+        <MeshPortalMaterial>
+          <ambientLight intensity={0.5} />
+          <Environment preset="city" />
+
+          <mesh castShadow receiveShadow geometry={aoboxNodes.Cube.geometry}>
+            <meshStandardMaterial aoMapIntensity={1} aoMap={aoboxNodes.Cube.material.aoMap} color={'lightblue'} />
+            <spotLight castShadow color={'lightblue'} intensity={2} position={[10, 10, 10]} angle={0.15} penumbra={1} shadow-normalBias={0.05} shadow-bias={0.0001} />
+          </mesh>
+          <mesh castShadow receiveShadow>
+            <torusKnotGeometry args={[0.2, 0.05, 128, 32]} />
+            <meshLambertMaterial color={'hotpink'} />
+          </mesh>
+        </MeshPortalMaterial>
+
+        {hovered && <Outlines thickness={0.1} color={'hotpink'} />}
+      </mesh>
+
+
     <group 
     ref={group} 
     position={[-25.5, -0.3, 0]} 
@@ -43,11 +89,6 @@ export default function Wizard({currentStage, setCurrentStage}, ...props) {
     rotation={[0, 1.8, 0]} 
     {...props} 
     dispose={null}
-    onClick={() => {
-      setCurrentStage(2)
-      playMagicSound()
-    }}  
-    
     >
     <Sparkles
               count={500}
@@ -56,6 +97,7 @@ export default function Wizard({currentStage, setCurrentStage}, ...props) {
               noise={2}
               position={[0, 2, 0]}
       />
+
       <group name="Sketchfab_Scene">
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
           <group name="root">
