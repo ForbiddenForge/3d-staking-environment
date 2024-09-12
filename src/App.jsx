@@ -19,7 +19,7 @@ export default function App() {
       <>
 
 
-        {currentStage === 1 && (
+        {(currentStage === 1 || currentStage === 3)  && (
           <div id='joystick'>
             <EcctrlJoystick buttonNumber={5} buttonTop1Props/>
           </div>
